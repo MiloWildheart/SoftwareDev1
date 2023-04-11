@@ -8,9 +8,18 @@ namespace LibararyBooks.MVVM.Model
 {
     public class Items
     {
-        public int ItemID { get; }
+
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public int AuthorId { get; set; }
+        public virtual Authors Author { get; set; }
+        public int MediaTypeId { get; set; }
+        public virtual MediaType MediaType { get; set; }
+
+        /**public int ItemID { get; }
         public string ItemName { get; }
         public string Description { get; }
+
         public readonly MediaType Type;
 
         public readonly Authors Authors;
@@ -22,6 +31,6 @@ namespace LibararyBooks.MVVM.Model
             Description = description;
             Type = type;
             Authors = authors;
-        }
+        }**/
     }
 }

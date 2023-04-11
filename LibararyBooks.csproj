@@ -9,9 +9,6 @@
 
   <ItemGroup>
     <Folder Include="Documentation\" />
-    <Folder Include="MVVM\Model\" />
-    <Folder Include="MVVM\Viewmodel\" />
-    <Folder Include="MVVM\View\" />
   </ItemGroup>
 
 </Project>

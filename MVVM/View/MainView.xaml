@@ -1,0 +1,18 @@
+﻿<Window x:Class="LibararyBooks.MVVM.View.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:LibararyBooks.MVVM.Viewmodel"
+        Title="Library Application">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Authors" Margin="5" Command="{Binding NavigateToAuthorsCommand}"/>
+            <Button Content="Items" Margin="5" Command="{Binding NavigateToItemsCommand}"/>
+            <Button Content="Media Types" Margin="5" Command="{Binding NavigateToMediaTypesCommand}"/>
+        </StackPanel>
+        <ContentControl Grid.Row="1" Content="{Binding CurrentViewModel}"/>
+    </Grid>
+</Window>
