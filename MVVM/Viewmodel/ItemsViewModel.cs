@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibararyBooks.MVVM.Viewmodel
+namespace LibararyBooks.MVVM.ViewModel
 {
     public class ItemsViewModel : INotifyPropertyChanged
     {

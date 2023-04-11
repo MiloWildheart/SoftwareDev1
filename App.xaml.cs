@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using LibararyBooks.MVVM.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibararyBooks
 {
@@ -13,5 +15,14 @@ namespace LibararyBooks
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            using (var db = new LibraryContext())
+            {
+                db.Database.Migrate();
+            }
+        }
     }
 }

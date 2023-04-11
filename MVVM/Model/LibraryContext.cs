@@ -11,6 +11,12 @@ namespace LibararyBooks.MVVM.Model
 {
     public class LibraryContext : DbContext
     {
+        public DbSet<Authors> Authors { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Server=.;Database=LibraryDatabase;Trusted_Connection=True;TrustServerCertificate=True");
+        }
         public LibraryContext()
         {
         }
@@ -20,7 +26,7 @@ namespace LibararyBooks.MVVM.Model
         {
         }
 
-        public DbSet<Authors> Authors { get; set; }
+        
         public DbSet<Items> Items { get; set; }
         public DbSet<MediaType> MediaTypes { get; set; }
 

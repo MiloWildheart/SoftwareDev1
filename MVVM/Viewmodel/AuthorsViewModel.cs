@@ -8,35 +8,35 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LibararyBooks.MVVM.Utility;
 
-namespace LibararyBooks.MVVM.Viewmodel
+namespace LibararyBooks.MVVM.ViewModel
 {
-    public class AuthorsViewModel : INotifyPropertyChanged
+    public class AuthorsViewModel
     {
         private readonly LibraryContext _context;
-        private ObservableCollection<Authors> _authors;
 
-        public ObservableCollection<Authors> Authors
-        {
-            get => _authors;
-            set
-            {
-                _authors = value;
-                OnPropertyChanged(nameof(Authors));
-            }
-        }
+        public ObservableCollection<Authors> Authors { get; } = new ObservableCollection<Authors>();
+        public string NewAuthorName { get; set; }
+
+        public RelayCommand AddAuthorCommand { get; }
 
         public AuthorsViewModel()
         {
             _context = new LibraryContext();
-            Authors = new ObservableCollection<Authors>(_context.Authors);
-        }
+            _context.Authors.Load();
+            Authors.AddRange(_context.Authors.Local.ToObservableCollection());
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            AddAuthorCommand = new RelayCommand(
+                () =>
+                {
+                    var author = new Authors { Name = NewAuthorName };
+                    _context.Authors.Add(author);
+                    _context.SaveChanges();
+                    Authors.Add(author);
+                },
+                () => !string.IsNullOrEmpty(NewAuthorName)
+            );
         }
     }
 }
