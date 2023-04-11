@@ -3,6 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:vm="clr-namespace:LibararyBooks.MVVM.Viewmodel"
              DataContext="{Binding ItemsViewModel, Source={StaticResource ViewModelLocator}}">
+
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ViewModelLocator.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
     <StackPanel>
         <ListView ItemsSource="{Binding Items}">
             <ListView.View>
