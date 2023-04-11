@@ -13,20 +13,6 @@ namespace LibararyBooks.MVVM.Model
         public string Name { get; set; }
         public virtual ICollection<Items> Items { get; set; }
 
-        /**public int MediaID { get; }
-        public string MediaName { get; }
-
-        public readonly Items Type;
-
-        public MediaType (int mediaID, string name, Items type){
-
-            mediaID = MediaID;
-
-            MediaName =  name;
-
-            Type = type;
-
-        }**/
-
+       
     }
 }

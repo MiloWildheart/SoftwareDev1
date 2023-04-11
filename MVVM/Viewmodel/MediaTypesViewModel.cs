@@ -1,4 +1,4 @@
-﻿using System.Data.Entity;
+﻿
 using LibararyBooks.MVVM.Model;
 using System;
 using System.Collections.Generic;

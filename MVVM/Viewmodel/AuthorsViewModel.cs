@@ -1,4 +1,4 @@
-﻿using System.Data.Entity;
+﻿
 using Microsoft.EntityFrameworkCore;
 using LibararyBooks.MVVM.Model;
 using System;
