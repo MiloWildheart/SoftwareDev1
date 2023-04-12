@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Windows.Input;
 using LibraryBooks.MVVM.Model;
 
 namespace LibraryBooks.MVVM.ViewModel
 {
-    internal class AuthorViewModel : INotifyPropertyChanged
+    public class AuthorViewModel : INotifyPropertyChanged
     {
-        private ObservableCollection<AuthorModel> authors;
-        private AuthorModel selectedAuthor;
+        public ObservableCollection<AuthorModel> authors { get; set; }
+        public AuthorModel selectedAuthor;
 
         public ObservableCollection<AuthorModel> Authors
         {
@@ -23,7 +24,9 @@ namespace LibraryBooks.MVVM.ViewModel
             }
         }
 
-        public AuthorModel SelectedAuthor
+       
+
+        private AuthorModel SelectedAuthor
         {
             get { return selectedAuthor; }
             set
@@ -36,6 +39,8 @@ namespace LibraryBooks.MVVM.ViewModel
             }
         }
 
+        public ICommand AddCommand { get; set; }
+
         public AuthorViewModel()
         {
             Authors = new ObservableCollection<AuthorModel>();
@@ -44,6 +49,7 @@ namespace LibraryBooks.MVVM.ViewModel
         public void AddAuthor(AuthorModel author)
         {
             Authors.Add(author);
+            OnPropertyChanged("Authors");
         }
 
         public void DeleteAuthor(AuthorModel author)
@@ -65,19 +71,6 @@ namespace LibraryBooks.MVVM.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        internal static void DeleteAuthor()
-        {
-            throw new NotImplementedException();
-        }
-
-        internal static void EditAuthor()
-        {
-            throw new NotImplementedException();
-        }
-
-        internal static void AddAuthor()
-        {
-            throw new NotImplementedException();
-        }
+   
     }
 }

@@ -29,12 +29,14 @@ namespace LibraryBooks.MVVM.View
             InitializeComponent();
             DataContext = new AddAuthorViewModel(this);
         }
+
+        public AddAuthorViewModel DataContext { get; }
     }
 
-    public class AddAuthorViewModel : BaseViewModel
+    public class AddAuthorViewModel : AuthorViewModel
     {
-        private AuthorViewModel authorViewModel;
-        private AddAuthorView addAuthorWindow;
+        private readonly AuthorViewModel authorViewModel;
+        private AddAuthorView addAuthorview;
 
         public AddAuthorViewModel(AddAuthorView addAuthorView)
         {
@@ -46,16 +48,14 @@ namespace LibraryBooks.MVVM.View
         public string AuthorName { get; set; }
         public DateTime PublishingDate { get; set; }
 
-        public ICommand AddCommand { get; set; }
-
-        private void AddAuthor()
+        private new void AddAuthor()
         {
-            AuthorModel newAuthor = new AuthorModel()
+            AuthorModel newAuthor = new()
             {
                 AuthorName = AuthorName,
                 PublishingDate = PublishingDate.ToString("yyyy-MM-dd")
             };
-            authorViewModel.AddAuthor(newAuthor);
+            object AuthorViewModel = AuthorViewModel.AddAuthor(newAuthor);
             AddAuthorView.Close();
         }
     }

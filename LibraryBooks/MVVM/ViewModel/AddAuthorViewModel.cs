@@ -8,19 +8,20 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using LibraryBooks.MVVM.Utility;
+using LibraryBooks.MVVM.View;
 
-namespace LibraryBooks.MVVM.View
+namespace LibraryBooks.MVVM.ViewModel
 {
-    public class AddAuthorViewModel : AuthorViewModel
+    public class AddAuthorViewModel2 : AuthorViewModel
     {
         private AuthorViewModel authorViewModel;
         private AddAuthorView addAuthorView;
 
-        public AddAuthorViewModel(AddAuthorView addAuthorView)
+        public AddAuthorViewModel2(AddAuthorView addAuthorView)
         {
             this.addAuthorView = addAuthorView;
             AuthorViewModel = (AuthorViewModel)Application.Current.MainWindow.DataContext;
-            AddCommand = new RelayCommand<object>(AddAuthor);
+            AddCommand = new RelayCommand(AddAuthor);
         }
 
         public string AuthorName { get; set; }
@@ -36,7 +37,7 @@ namespace LibraryBooks.MVVM.View
                 PublishingDate = PublishingDate.ToString("yyyy-MM-dd")
             };
             AuthorViewModel.AddAuthor(newAuthor);
-            AddAuthorView.Close();
+            addAuthorView.Close();
         }
     }
 }
