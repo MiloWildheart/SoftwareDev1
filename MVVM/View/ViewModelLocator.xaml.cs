@@ -18,7 +18,7 @@ namespace LibararyBooks.MVVM.View
     /// <summary>
     /// Interaction logic for ViewModelLocator.xaml
     /// </summary>
-    public partial class ViewModelLocator : UserControl
+    public partial class ViewModelLocator : ResourceDictionary
     {
         public ViewModelLocator()
         {

@@ -13,14 +13,6 @@ namespace LibararyBooks.MVVM.Model
         public string Name { get; set; }
         public virtual ICollection<Items> Items { get; set; }
 
-       // public readonly Items _AuthorName;
-
-        //public string AuthorName { get; }
-
-//        public Authors (string name)
-        //{
-  //          AuthorName = name;
-    //        _AuthorName = new Items();
-      //  }
+    
     }
 }

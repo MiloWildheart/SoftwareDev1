@@ -1,5 +1,4 @@
-﻿
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using LibararyBooks.MVVM.Model;
 using System;
 using System.Collections.Generic;
@@ -12,12 +11,32 @@ using LibararyBooks.MVVM.Utility;
 
 namespace LibararyBooks.MVVM.ViewModel
 {
-    public class AuthorsViewModel
+    public class AuthorsViewModel : INotifyPropertyChanged
     {
         private readonly LibraryContext _context;
+        private ObservableCollection<Authors> _authors;
+        private string _newAuthorName;
 
-        public ObservableCollection<Authors> Authors { get; } = new ObservableCollection<Authors>();
-        public string NewAuthorName { get; set; }
+        public ObservableCollection<Authors> Authors
+        {
+            get { return _authors; }
+            set
+            {
+                _authors = value;
+                OnPropertyChanged(nameof(Authors));
+            }
+        }
+
+        public string NewAuthorName
+        {
+            get { return _newAuthorName; }
+            set
+            {
+                _newAuthorName = value;
+                OnPropertyChanged(nameof(NewAuthorName));
+                AddAuthorCommand.RaiseCanExecuteChanged();
+            }
+        }
 
         public RelayCommand AddAuthorCommand { get; }
 
@@ -25,7 +44,7 @@ namespace LibararyBooks.MVVM.ViewModel
         {
             _context = new LibraryContext();
             _context.Authors.Load();
-            Authors.AddRange(_context.Authors.Local.ToObservableCollection());
+            Authors = _context.Authors.Local.ToObservableCollection();
 
             AddAuthorCommand = new RelayCommand(
                 () =>
@@ -34,9 +53,17 @@ namespace LibararyBooks.MVVM.ViewModel
                     _context.Authors.Add(author);
                     _context.SaveChanges();
                     Authors.Add(author);
+                    NewAuthorName = string.Empty;
                 },
                 () => !string.IsNullOrEmpty(NewAuthorName)
             );
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

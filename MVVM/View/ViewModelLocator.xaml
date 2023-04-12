@@ -13,6 +13,7 @@
         <vm:AuthorsViewModel x:Key="AuthorsViewModel"/>
         <vm:ItemsViewModel x:Key="ItemsViewModel"/>
         <vm:MediaTypesViewModel x:Key="MediatypesViewModel"/>
+        <vm:MainViewModel x:Key="MainViewModel"/>
 
     </ResourceDictionary>
 
