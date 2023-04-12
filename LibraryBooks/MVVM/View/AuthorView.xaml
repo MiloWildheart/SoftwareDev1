@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="LibraryBooks.MVVM.View.AuthorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <ListView ItemsSource="{Binding Authors}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Author ID" DisplayMemberBinding="{Binding AuthorID}" />
+                    <GridViewColumn Header="Author Name" DisplayMemberBinding="{Binding AuthorName}" />
+                    <GridViewColumn Header="Publishing Date" DisplayMemberBinding="{Binding PublishingDate}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <Button Content="Add" Click="Add_Click"/>
+            <Button Content="Edit" Click="Edit_Click"/>
+            <Button Content="Delete" Click="Delete_Click"/>
+        </StackPanel>
+
+    </Grid>
+
+</UserControl>
