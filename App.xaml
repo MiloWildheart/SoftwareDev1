@@ -7,15 +7,23 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
+            <!-- MergedDictionaries allows multiple ResourceDictionaries to be merged into one -->
             <ResourceDictionary.MergedDictionaries>
+
+                <!-- MenuButtonTheme.xaml is a custom theme for the application's menu buttons-->
                 <ResourceDictionary Source="Theme/MenuButtonTheme.xaml"/>
+
+                <!-- TextBoxTheme.xaml is a custom theme for the application's text boxes-->
                 <ResourceDictionary Source="Theme/TextBoxTheme.xaml"/>
+
             </ResourceDictionary.MergedDictionaries>
 
+            <!-- DataTemplate is used to define how to display a ViewModel in the View-->
+            <!-- Here, the HomeViewModel's DataTemplate is set to display the HomeView-->
             <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
                 <view:HomeView/>
             </DataTemplate>
-            
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -7,10 +7,15 @@ using System.Threading.Tasks;
 
 namespace Library.MVVM.ViewModel
 {
+    /// <summary>
+    /// ViewModel for the main window of the application
+    /// </summary>
     class MainViewModel : ObservableObject
     {
+        // ViewModel for the Home view
         public HomeViewModel HomeVM { get; set; }
-        
+
+        // Current view to display
         private object _currentView;
 
         public object currentView
@@ -22,10 +27,14 @@ namespace Library.MVVM.ViewModel
             }
         }
 
-
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public MainViewModel()
         {
-            HomeVM= new HomeViewModel();
+            // Create a new instance of the HomeViewModel
+            HomeVM = new HomeViewModel();
+            // Set the current view to the Home view
             currentView = HomeVM;
         }
     }
