@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\source\repos\Library\App.xaml
-3-1531558016
+4-1448662688
 
-5-691000765
+8-2096597805
 194237474483
-MainWindow.xaml;Theme\MenuButtonTheme.xaml;Theme\TextBoxTheme.xaml;
+MainWindow.xaml;MVVM\View\HomeView.xaml;Theme\MenuButtonTheme.xaml;Theme\TextBoxTheme.xaml;
 
 False
 

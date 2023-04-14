@@ -15,8 +15,11 @@
             Margin="0,0,0,20"/>
 
         <StackPanel Orientation="Horizontal">
-            <Border Width="400"
-                    Height="200">
+            <Border Width="350"
+                    Height="200"
+                    CornerRadius="10"
+                    Margin="25,0,0,0">
+                    
                 
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
@@ -50,13 +53,95 @@
                 
             </Border>
 
-            <Border Width="400"
+            <Border Width="250"
                     Height="200"
                     CornerRadius="10"
-                    Margin="45,0,0,0">
+                    Margin="25,0,0,0">
 
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="Green" Offset="0.0"/>
+                        <GradientStop Color="yellow" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10"
+                                       RadiusY="10"
+                                       Rect="0,0,400,200"/>
+                </Border.Clip>
 
+                <Grid>
+                    <StackPanel>
+                        <TextBlock Text="Boeken"
+                                   Foreground="White"
+                                   FontSize="38"
+                                   Margin="20,10,10,0">
+
+                            <TextBlock.Effect>
+                                <DropShadowEffect Color="Black"
+                                    BlurRadius="5"
+                                    ShadowDepth="3" />
+                            </TextBlock.Effect>
+                        </TextBlock>
+                    </StackPanel>
+
+                    
+                    
+                </Grid>
             </Border>
+            
+            
         </StackPanel>
+
+        <StackPanel>
+
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="Margin" Value="15,0,0,0"/>
+                </Style>
+            </StackPanel.Resources>
+            
+            <TextBlock Text=""
+                       Foreground="White"
+                       FontSize="38"
+                       HorizontalAlignment="Left"
+                       Margin="20,10,10,0">
+
+                <TextBlock.Effect>
+                    <DropShadowEffect Color="Black"
+                                    BlurRadius="5"
+                                    ShadowDepth="3" />
+                </TextBlock.Effect>
+                            
+                            <StackPanel Orientation="Horizontal">
+                                <Border Width="150"
+                                        Height="150"
+                                        Background="Peru"
+                                        CornerRadius="10"
+                                        Margin="5"/>
+                                
+                                <Border Width="150"
+                                        Height="150"
+                                        Background="LightCyan"
+                                        CornerRadius="10"
+                                        Margin="5"/>
+                                
+                                <Border Width="150"
+                                        Height="150"
+                                        Background="HotPink"
+                                        CornerRadius="10"
+                                        Margin="5"/>
+                                
+                                <Border Width="150"
+                                        Height="150"
+                                        Background="RoyalBlue"
+                                        CornerRadius="10"
+                                        Margin="5"/>
+                                        
+
+                            </StackPanel>
+                        </TextBlock>
+                    </StackPanel>
+
     </StackPanel>
 </UserControl>

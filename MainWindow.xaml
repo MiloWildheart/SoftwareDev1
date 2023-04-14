@@ -4,12 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library"
+        xmlns:viewModel="clr-namespace:Library.MVVM.ViewModel"
+        xmlns:view="clr-namespace:Library.MVVM.View"
         mc:Ignorable="d"
         Title="MainWindow" Height="480" Width="960"
         ResizeMode="CanResize"
         WindowStyle="None"
         Background="Transparent"
         AllowsTransparency="true">
+
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+    
     <Border Background="#272529" CornerRadius="5">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -63,7 +70,8 @@
 
             <ContentControl Grid.Row="1"
                             Grid.Column="1"
-                            Margin="10"/>
+                            Margin="10"
+                            Content="{Binding currentView}"/>
 
         </Grid>
     </Border>

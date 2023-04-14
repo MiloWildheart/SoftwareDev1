@@ -22,3 +22,6 @@ D:\source\repos\Library\obj\Debug\net6.0-windows\Library.pdb
 D:\source\repos\Library\obj\Debug\net6.0-windows\Library.genruntimeconfig.cache
 D:\source\repos\Library\obj\Debug\net6.0-windows\ref\Library.dll
 D:\source\repos\Library\obj\Debug\net6.0-windows\Theme\TextBoxTheme.baml
+D:\source\repos\Library\obj\Debug\net6.0-windows\MVVM\View\HomeView.g.cs
+D:\source\repos\Library\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+D:\source\repos\Library\obj\Debug\net6.0-windows\MVVM\View\HomeView.baml
